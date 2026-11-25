@@ -1,0 +1,64 @@
+@startuml proceso_negocio
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam shadowing false
+skinparam ActivityBackgroundColor #FFFFFF
+skinparam ActivityBorderColor #333333
+skinparam ArrowColor #333333
+skinparam SwimlaneBorderColor #333333
+skinparam SwimlaneTitleFontStyle bold
+skinparam ActivityDiamondBackgroundColor #FFFFFF
+skinparam ActivityDiamondBorderColor #333333
+
+title Proceso de negocio: afiliación, renovación y beneficios del socio\nGimnasio Titán (situación actual)
+
+|Socio|
+start
+:Llega al gimnasio y solicita\ninscribirse o renovar su membresía;
+
+|Recepcionista|
+:Busca al socio en el cuaderno de registro;
+if (¿El socio está registrado?) then (no)
+  :Solicita nombre, CI, teléfono\ny fecha de nacimiento;
+  |Socio|
+  :Proporciona sus datos personales;
+  |Recepcionista|
+  :Anota los datos del socio\nen el cuaderno de registro;
+else (sí)
+endif
+:Informa los planes disponibles\ncon su duración y precio;
+:Consulta si existe alguna promoción\no descuento que aplique al socio;
+
+|Administrador|
+:Revisa las promociones vigentes\n(fecha especial, cumpleaños, pareja o familia);
+if (¿Corresponde descuento?) then (sí)
+  :Autoriza el descuento\ny lo comunica a recepción;
+else (no)
+  :Indica que se cobra\nel precio normal;
+endif
+
+|Socio|
+:Elige el plan;
+:Realiza el pago\n(efectivo o QR);
+
+|Recepcionista|
+:Recibe el pago y llena\nel recibo manual;
+:Anota la fecha de inicio\ny de vencimiento en el cuaderno;
+
+|Socio|
+:Recibe su recibo\ne ingresa a entrenar;
+
+|Recepcionista|
+:Al cierre del día entrega el dinero\ny los recibos al administrador;
+
+|Administrador|
+:Cuadra la caja con los recibos;
+:Revisa en el cuaderno los socios\npor vencer y su antigüedad;
+if (¿Hay socios por vencer o con antigüedad destacada?) then (sí)
+  :Indica a recepción avisar al socio\no entregarle un beneficio;
+  |Recepcionista|
+  :Avisa al socio por llamada\no WhatsApp;
+else (no)
+endif
+stop
+@enduml
